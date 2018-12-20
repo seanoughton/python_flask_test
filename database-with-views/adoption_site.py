@@ -46,7 +46,7 @@ class Puppy(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 @app.route('/add',methods=['GET','POST'])
