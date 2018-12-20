@@ -1,16 +1,43 @@
 import os
 # from forms import AddForm,DelForm
+
+#import flask and the modules used
 from flask import Flask,render_template,url_for,redirect
+
+#import the ORM and the migration module
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 
-app = Flask(__name__)
+app = Flask(__name__) #creates the app and names it the name of the file
 
-app.config['SECRET_KEY'] = 'mysecretkey'
+app.config['SECRET_KEY'] = 'mysecretkey' #this is for CSRF for the forms
 
-****************** SQL Database *********************
+####################### SQL Database ###########################
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__)) #sets the file path for this file
+#config the database with the ORM, gives the path to the database file
+#tells it not to track all modifications to the db
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+
+
+db = SQLAlchemy(app) #this creates the db by passing in the app to SQLAlchemy
+Migrate(app,db) #this gives the ability to migrate, connecting the app with the database
+####################### SQL Database ###########################
+
+####################### MODELS ###########################
+
+class Puppy(db.Model):
+
+    __tablename__ = 'puppies'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.Text)
+
+    def __init__(self,name):
+        self.name = name
+
+    def __repr__(self):
+        return f"Puppy name: {self.name}
+
+        "
