@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>TITLE</title>
+     <meta name="description" content="DESCRIPTION">
+    <link rel="stylesheet" href="PATH">
+
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+ </head>
+
+ <body>
+
+  <h1>Welcome</h1>
+
+  <ul>
+    {% for item in mylist %}
+      <li>{{item}}</li>
+    {% endfor %}
+  </ul>
+
+  <ul>
+    {% for pup in puppies %}
+      <li>{{pup}}</li>
+    {% endfor %}
+  </ul>
+
+  {% if 'Fluffy' in puppies %}
+  <p> Found Fluffy </p>
+  {% else %}
+  <p> Could not find Fluffy </p>
+  {% endif  %}
+
+
+ </body>
+
+ </html>
