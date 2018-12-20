@@ -1,5 +1,5 @@
 import os
-# from forms import AddForm,DelForm
+from forms import AddForm,DelForm
 
 #import flask and the modules used
 from flask import Flask,render_template,url_for,redirect
@@ -38,6 +38,8 @@ class Puppy(db.Model):
         self.name = name
 
     def __repr__(self):
-        return f"Puppy name: {self.name}
+        return f"Puppy name: {self.name}"
 
-        "
+####################### MODELS ###########################
+
+####################### VIEWS ###########################
