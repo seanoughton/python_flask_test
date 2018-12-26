@@ -1,4 +1,4 @@
-from flask import Flask,render_template,session,redirect_url,url_for
+from flask import Flask,render_template,session,redirect,url_for
 from flask_wtf import FlaskForm
 from wtforms import  (StringField,BooleanField,SubmitField,DateTimeField,
                         RadioField,SelectField,TextField,TextAreaField)
@@ -19,7 +19,7 @@ class InfoForm(FlaskForm):
     #in this case the label is mood_one, and the value is label
 
     food_choice = SelectField(u'Pick your favorite food:',
-                                choices=[('chi','Chicken'),('bf','Beef')('fish','Fish')])
+                                choices=[('chi','Chicken'),('bf','Beef'),('fish','Fish')])
     #the u forces this to be a unicode string
     #Chicken is what the users sees, and and the backend we call it chi for short
 
