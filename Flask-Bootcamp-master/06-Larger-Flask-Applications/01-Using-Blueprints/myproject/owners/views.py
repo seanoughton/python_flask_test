@@ -3,6 +3,7 @@ from myproject import db
 from myproject.models import Owner
 from myproject.owners.forms import AddForm
 
+#CREATING THE OWNERS Blueprint
 owners_blueprint = Blueprint('owners',
                               __name__,
                               template_folder='templates/owners')
