@@ -8,6 +8,8 @@ owners_blueprint = Blueprint('owners',
                               __name__,
                               template_folder='templates/owners')
 
+#THIS ROUTES THE ADD VIEW USING THE OWNERS BLUEPRINT
+#instead of @app.route
 @owners_blueprint.route('/add', methods=['GET', 'POST'])
 def add():
 
