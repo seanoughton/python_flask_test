@@ -21,5 +21,7 @@ def add():
         db.session.add(new_owner)
         db.session.commit()
 
+        #puppies.list is the view function called list within the puppies views
+        #you call it this way because the views will be registered with a blueprint, so our are saying get me the list function(route,view) in the puppies view file, redirect there
         return redirect(url_for('puppies.list'))
     return render_template('add_owner.html',form=form)
