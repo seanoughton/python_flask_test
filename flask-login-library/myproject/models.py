@@ -9,12 +9,13 @@ from flask_login import UserMixin
 def load_user(user_id):
     return User.query.get(user_id)
     #loads the current user based on their id
+    #allows you to call current_user in your templates
 
 #UserMixin has all of the management features of logging in and authorizing users
 class User(db.Model,UserMixin):
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer,primary_key)
+    id = db.Column(db.Integer,primary_key=True)
     email = db.Column(db.String(64),unique=True,index=True) #limits the number of characters and forces a unique email
     username = db.Column(db.String(64),unique=True,index=True)
     password_hash = db.Column(db.String(128))

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Here are all of the puppies</h1>
+  <ul>
+    {% for pup in puppies %}
+        {% if pup.owner %}
+          <li>{{ pup['name']|e }} belongs to {{pup['owner']['name']}}.</li>
+        {% else %}
+            <li>{{ pup['name']|e }} has no owner.</li>
+        {% endif %}
+    {% endfor %}
+  </ul>
+
+
+
+</div>
+
+{% endblock %}

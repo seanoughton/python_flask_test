@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Here are all of the Owners</h1>
+  <ul>
+    {% for owner in owners %}
+      <li>{{ owner['name']|e }} and the pup id for this owner is {{ owner['id'] | e }}.</li>
+      <li>The Pups name is {{info[owner['name']]}}</li>
+      <br>
+    {% endfor %}
+  </ul>
+
+
+
+</div>
+
+{% endblock %}

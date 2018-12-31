@@ -1,4 +1,5 @@
 from flask import Blueprint,render_template,redirect,url_for
+#this means go to the __init__.py file and import something from there, in this case the database
 from myproject import db
 from myproject.models import Owner
 from myproject.owners.forms import AddForm
