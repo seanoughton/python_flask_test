@@ -3,9 +3,12 @@ from flask import Flask
 #API - is a wrapper around the entire application, that allows the resource to connect
 from flask_restful import Resource, Api
 
+
 app = Flask(__name__)
 
+
 api = Api(app)
+
 
 #CREATE A RESOURCE => create a class
 
