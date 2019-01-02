@@ -26,7 +26,7 @@ def register():
 @users.route("/logout")
 def logout():
     logout_user() #this comes from flask_login
-    return redirect(url_for('core.index'))
+    return redirect(url_for('users.register'))
 
 
 @users.route('/login',methods=['GET','POST'])
@@ -73,8 +73,8 @@ def account():
 
     return render_template('account.html',profile_image=profile_image,form=form)
 
-@users.route('/<username>')
-def user_posts():
+@users.route("/<username>")
+def user_posts(username):
     #this will allow you to cycle through user posts using pages
     page = request.args.get('page',1,type=int)
     #this allows you to return a 404 error if the user types in the name wrong
